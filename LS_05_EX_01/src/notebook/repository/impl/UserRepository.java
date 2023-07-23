@@ -35,7 +35,7 @@ public class UserRepository implements GBRepository<User> {
 
     @Override
     public List<User> list() {
-        return (List<User>)dataSet.values();
+        return new ArrayList<User>(dataSet.values());
     }
     @Override
     public User add(User user) {
@@ -59,7 +59,6 @@ public class UserRepository implements GBRepository<User> {
             return null;
         }
     }
-
     @Override
     public User remove(User user) {
         if (dataSet.containsKey(user.getId())) {

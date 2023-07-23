@@ -53,6 +53,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("?????????????: %s\n???: %s,\n???????: %s,\n???????: %s", id, firstName, lastName, phone);
+        return String.format("ID:%s,\nFIRST NAME: %s,\nLAST NAME: %s,\nPHONE: %s\n", id, firstName, lastName, phone);
     }
 }

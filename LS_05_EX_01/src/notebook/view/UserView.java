@@ -23,13 +23,13 @@ public class UserView {
             if (com == Commands.EXIT) break;
             switch (com) {
                 case CREATE:
-                    user = new User(prompt("Имя: "), prompt("Фамилия: "), prompt("Номер телефона: "));
+                    user = new User(prompt("Name: "), prompt("Last name: "), prompt("Phone: "));
                     userController.save(user);
-                    System.out.println("Контакт добавлен. Id ".concat(user.getId().toString()));
+                    System.out.println("New user Id ".concat(user.getId().toString()));
                     break;
                 case READ:
                     try {
-                        System.out.println(userController.read(Long.parseLong(prompt("Id контакта: "))));
+                        System.out.println(userController.read(Long.parseLong(prompt("User Id: "))));
                     }
                     catch (Exception e) {
                         throw new RuntimeException(e);
@@ -37,10 +37,10 @@ public class UserView {
                     break;
                 case UPDATE:
                     try {
-                        user = userController.read(Long.parseLong(prompt("Id контакта: ")));
-                        user.setFirstName(prompt("Имя: "));
-                        user.setLastName(prompt("Фамилия: "));
-                        user.setPhone(prompt("Номер телефона: "));
+                        user = userController.read(Long.parseLong(prompt("User Id: ")));
+                        user.setFirstName(prompt("Name: "));
+                        user.setLastName(prompt("Last name: "));
+                        user.setPhone(prompt("Phone: "));
                         userController.update(user);
                         System.out.println();
                     }
@@ -48,8 +48,15 @@ public class UserView {
                         throw new RuntimeException(e);
                     }
                     break;
-
                 case DELETE:
+                    try {
+                    user = new User(Long.parseLong(prompt("User Id: ")));
+                    user = userController.delete(user);
+                    System.out.println("Delete ".concat(user.getLastName()));
+                    }
+                    catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
                 case LIST:
                     try {

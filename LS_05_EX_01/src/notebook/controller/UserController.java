@@ -30,6 +30,9 @@ public class UserController {
     public User update(User user){
         return repository.update(user);
     }
+    public User delete(User user){
+        return repository.remove(user);
+    }
 
     public List<User> readAll(){
         return repository.list();
