@@ -1,10 +1,9 @@
-package notebook.dao.impl;
-
-import notebook.dao.Operation;
+package notebook.repository.impl;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import notebook.repository.Operation;
 
 public class FileOperation implements Operation<String> {
     private final String fileName;
@@ -19,28 +18,27 @@ public class FileOperation implements Operation<String> {
     }
 
     @Override
-    public List<String> readAll() {
-        List<String> lines = new ArrayList<>();
+    public List<String> read() {
+        List<String> data = new ArrayList<>();
         try {
-            File file = new File(fileName);
-            FileReader fr = new FileReader(file);
+            FileReader fr = new FileReader(new File(fileName));
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
             while (line != null) {
-                lines.add(line);
+                data.add(line);
                 line = reader.readLine();
             }
             fr.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return lines;
+        return data;
     }
     @Override
-    public void saveAll(List<String> data) {
+    public void write(List<String> data) {
         try (FileWriter writer = new FileWriter(fileName, false)) {
             for (String line : data) {
-                writer.write(line.concat('\n'));
+                writer.write(line.concat("\n"));
             }
             writer.flush();
         } catch (IOException e) {

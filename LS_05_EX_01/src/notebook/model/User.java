@@ -16,7 +16,9 @@ public class User {
         this(firstName, lastName, phone);
         this.id = id;
     }
-
+    public User(Long id) {
+        this(id, null, null, null);
+    }
     public Long getId() {
         return id;
     }
@@ -51,6 +53,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("Идентафикатор: %s\nИмя: %s,\nФамилия: %s,\nТелефон: %s", id, firstName, lastName, phone);
+        return String.format("?????????????: %s\n???: %s,\n???????: %s,\n???????: %s", id, firstName, lastName, phone);
     }
 }

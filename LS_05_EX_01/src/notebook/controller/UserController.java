@@ -7,23 +7,32 @@ import java.util.List;
 import java.util.Objects;
 
 public class UserController {
-    private final GBRepository<User, Long> repository;
+    private final GBRepository<User> repository;
 
-    public UserController(GBRepository<User, Long> repository) {
+    public UserController(GBRepository<User> repository) {
         this.repository = repository;
     }
 
-    public void saveUser(User user) {
-        repository.create(user);
+    public void save(User user) {
+        repository.add(user);
     }
 
-    public User readUser(Long userId) throws Exception {
-        List<User> users = repository.findAll();
-        for (User user : users) {
-            if (Objects.equals(user.getId(), userId)) {
-                return user;
-            }
-        }
-        throw new RuntimeException("User not found");
+    public void saveAll() {
+        repository.saveAll();
     }
+    public User read(Long userId) throws Exception {
+        User user = repository.get(new User(userId));
+        if (user != null )
+            return user;
+        else
+            throw new RuntimeException("User not found");
+    }
+    public User update(User user){
+        return repository.update(user);
+    }
+
+    public List<User> readAll(){
+        return repository.list();
+    }
+    
 }
