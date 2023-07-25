@@ -1,0 +1,18 @@
+июл. 25, 2023 1:14:48 PM Controller.ComplexController toComplex
+INFO: Method toComplex can not convert 4f;3e to Complex
+июл. 25, 2023 1:23:57 PM Controller.ComplexController toComplex
+WARNING: Can not convert 1q;2e to Complex
+июл. 25, 2023 1:26:06 PM Controller.ComplexController toComplex
+WARNING: Can not convert 1w;4r to Complex
+июл. 25, 2023 1:26:10 PM Controller.ComplexController toComplex
+INFO: Convert 1;1 to (1,000000+1,000000i)
+июл. 25, 2023 1:26:22 PM Controller.ComplexController toComplex
+INFO: Convert 1;1 to (1,000000+1,000000i)
+июл. 25, 2023 1:26:22 PM Controller.ComplexController div
+INFO: (1,000000+1,000000i) / (1,000000+1,000000i) = (1,000000+0,000000i)
+июл. 25, 2023 1:29:52 PM Controller.ComplexController toComplex
+INFO: Convert 2;7 to (2,000000+7,000000i)
+июл. 25, 2023 1:30:11 PM Controller.ComplexController toComplex
+INFO: Convert 2;7 to (2,000000+7,000000i)
+июл. 25, 2023 1:30:11 PM Controller.ComplexController diff
+INFO: (2,000000+7,000000i) - (2,000000+7,000000i) = (0,000000+0,000000i)
